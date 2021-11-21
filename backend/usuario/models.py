@@ -8,16 +8,14 @@ class Usuario(models.Model):
     nome = models.CharField(max_length=140)
     email = models.EmailField(max_length=254)
     senha = models.CharField(max_length=140)
-    favoritos = models.ManyToManyField('Post')
+    favoritos = models.ManyToManyField('Post', blank=True)
 
     class Meta:
         ordering = ['nome']
 
     def __str__(self):
         return self.nome
-
-
-
+        
 
 class Post(models.Model):
     titulo = models.CharField(max_length=50)
@@ -32,7 +30,7 @@ class Post(models.Model):
 
 class Categoria(models.Model):
     nome = models.CharField(max_length=140)
-    posts = models.ManyToManyField(Post)
+    posts = models.ManyToManyField(Post, blank=True)
 
     def __str__(self):
         return self.nome
