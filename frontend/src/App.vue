@@ -1,19 +1,38 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+      <table class="table">
+        <thead>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Senha</th>
+        </thead>
+        <tbody>
+          <tr v-for="usuario in usuarios" :key="usuario.id">
+            <td>{{ usuario.nome }}</td>
+            <td>{{ usuario.email }}</td>
+            <td>{{ usuario.senha }}</td>
+          </tr>
+        </tbody>
+      </table>  
+
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data(){
+    return {
+      usuarios: []
+    }
+  },
+  async created(){
+    var response =await fetch('http://127.0.0.1:8000/api/usuario/')
+    this.usuarios = await response.json();
   }
 }
+
 </script>
 
 <style>
