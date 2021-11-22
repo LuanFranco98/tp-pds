@@ -1,7 +1,7 @@
 from django.db.models import fields
 from rest_framework.serializers import ModelSerializer
 
-from .models import Usuario, Post
+from .models import Categoria, Usuario, Post
 
 class UsuarioSerializer(ModelSerializer):
     class Meta:
@@ -17,5 +17,13 @@ class PostSerializer(ModelSerializer):
             'conteudo',
             'imagem',
             'criador',
-            'categoria',
+            'categorias',
+        ]
+
+class CategoriaSerializer(ModelSerializer):
+    class Meta:
+        model = Categoria
+        fields = [
+            'nome',
+            'posts',
         ]
