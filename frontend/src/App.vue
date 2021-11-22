@@ -1,33 +1,37 @@
 <template>
   <div id="app">
+    
 
-    <form @submit.prevent="">
-      <div class="form-group row">
-        <input  type="text" class="form-control col-3 mx-2" placeholder="Nome" v-model="usuario.nome"/>
-        <input  type="text" class="form-control col-3 mx-2" placeholder="E-mail" v-model="usuario.email"/>
-        <input  type="text" class="form-control col-3 mx-2" placeholder="Senha" v-model="usuario.senha"/>
-        <button class="btn btn-success"  v-on:click="submitForm()">{{this.mode}}</button>
-      </div>
-    </form>
+   <router-view/>
+    <div>
+      <form v-on:submit.prevent="onSubmit">
+        <div class="form-group row">
+          <input  type="text" class="form-control col-3 mx-2" placeholder="Nome" v-model="usuario.nome"/>
+          <input  type="text" class="form-control col-3 mx-2" placeholder="E-mail" v-model="usuario.email"/>
+          <input  type="text" class="form-control col-3 mx-2" placeholder="Senha" v-model="usuario.senha"/>
+          <button class="btn btn-success"  v-on:click="submitForm()">{{this.mode}}</button>
+        </div>
+      </form>
 
-    <table class="table">
-      <thead>
-        <th>Nome</th>
-        <th>Email</th>
-        <th>Senha</th>
-        <th>Editar usuario</th>
-      </thead>
-      <tbody>
-        <tr v-for="usuario in usuarios" :key="usuario.id">
-          <td>{{ usuario.nome }}</td>
-          <td>{{ usuario.email }}</td>
-          <td>{{ usuario.senha }}</td>
-          <td>
-            <button class="btn btn-success" v-on:click="setUsuario(usuario)"> Icone? </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>  
+      <table class="table">
+        <thead>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Senha</th>
+          <th>Editar usuario</th>
+        </thead>
+        <tbody>
+          <tr v-for="usr in usuarios" :key="usr.id">
+            <td>{{ usr.nome }}</td>
+            <td>{{ usr.email }}</td>
+            <td>{{ usr.senha }}</td>
+            <td>
+              <button class="btn btn-success" v-on:click="setUsuario(usr)"> Icone? </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>  
+    </div>
 
   </div>
 </template>
@@ -52,12 +56,10 @@ export default {
     submitForm(){
       if(this.usuario.id == undefined)
       {
-        print("entra aqui")
-        this.mode = 'Cadastrar'
+        this.mode = 'Cadastrar';
         this.createUsuario();
       }else
       {
-        print("entra no else")
         this.editUsuario();
       }
     },
@@ -109,7 +111,7 @@ export default {
 }
 
 </script>
-
+<!-- 
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -120,3 +122,4 @@ export default {
   margin-top: 60px;
 }
 </style>
+-->
