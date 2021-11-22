@@ -11,7 +11,8 @@
   <body>
     <nav class="navbar is-dark" style="background-color: black; color:aliceblue">
       <div class="navbar-brand">
-        <link to="/" class="navbar-item"><strong>Medium Clone</strong></router-link>
+        <router-link><link to="/" class="navbar-item"><strong>Medium Clone</strong>
+    </router-link>
         
       </div>
       <div class="navbar-menu" id="navbar-menu">
@@ -25,15 +26,13 @@
     <noscript>
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
-    <div class="container">
+    
       
-      <div class="row">
-        <div class="col-8 mx-auto mt-5">
-          <div id="app"></div>
-        </div>
-      </div>
 
-    </div>
+    <div id="app"></div>
+
+
+    
     <!-- built files will be auto injected -->
   
   </body>

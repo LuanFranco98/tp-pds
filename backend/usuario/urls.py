@@ -9,6 +9,7 @@ from .views import *
 
 router = routers.DefaultRouter()
 router.register('usuario', UsuarioViewSet)
+router.register('post', PostViewSet)
 
 urlpatterns = [
 
