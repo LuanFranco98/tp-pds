@@ -1,9 +1,9 @@
 <template>
-  <div id="app">
+  <div id="app" style="background-color:#CCC8B3; margin-left:15%; margin-right:15%">
     
 
   
-    <div class="row">
+    <div class="row" >
         <div class="col-8 mx-auto mt-5">
           <form v-on:submit.prevent="onSubmit">
             <div class="form-group row">
