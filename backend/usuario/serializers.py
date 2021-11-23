@@ -6,13 +6,14 @@ from .models import Categoria, Usuario, Post
 class UsuarioSerializer(ModelSerializer):
     class Meta:
         model = Usuario
-        fields = ['nome', 'email', 'senha', 'favoritos']
+        fields = ['id','nome', 'email', 'senha', 'favoritos']
     
 
 class PostSerializer(ModelSerializer):
     class Meta:
         model = Post
         fields = [
+            'id'
             'titulo',
             'conteudo',
             'imagem',
@@ -24,6 +25,7 @@ class CategoriaSerializer(ModelSerializer):
     class Meta:
         model = Categoria
         fields = [
+            'id',
             'nome',
             'posts',
         ]
