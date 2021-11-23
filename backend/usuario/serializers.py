@@ -13,7 +13,7 @@ class PostSerializer(ModelSerializer):
     class Meta:
         model = Post
         fields = [
-            'id'
+            'id',
             'titulo',
             'conteudo',
             'imagem',
