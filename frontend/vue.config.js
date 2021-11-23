@@ -17,11 +17,11 @@ module.exports = {
         filename: 'createUsuario.html',
         title:'Create Usuario'
       },
-      postByCategory:{
-        entry: 'src/views/post/postByCategory/postByCategory.js',
-        template: 'public/index.html',
-        filename: 'postByCategory.html',
-        title:'Post by Category'
+      postbyCategory:{
+        entry: 'src/views/post/postByCategory/postbyCategory.js',
+        template: 'public/postbyCategory.html',
+        filename: 'postbyCategory.html',
+        title:'Post By Category'
       }
 
     }

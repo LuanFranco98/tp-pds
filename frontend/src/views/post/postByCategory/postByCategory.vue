@@ -1,9 +1,9 @@
 <template>
     
-    <div>
+    <div id="PostByCategory" style="background-color:#CCC8B3; width:250px; margin-left:15%; margin-right:15%">
         <select @change="setCategoria($event)" class="form-select form-control">
             <option> --- Selecione uma categoria --- </option>
-            <option v-for="categoria in categorias" :key="categoria.id" :value="categoria.id"> {{ categoria.nome }} </option>
+            <option v-for="categoria in categorias" :key="categoria.id" :value="categoria"> {{ categoria.nome }} </option>
         </select>
         <div v-if="categoriaSelecionada != null">
             <div v-for="postagem in posts" :key="postagem.id"  style="background-color:#CCC8B3; margin-left:15%; margin-right:15%">
@@ -21,7 +21,8 @@
 
 <script>
     export default {
-        name: 'PostByCategory',
+        name: 'PostbyCategory',
+
         data(){
         return {
             categoriaSelecionada: null,
@@ -30,6 +31,7 @@
             posts: []
             }
         },
+        
         async created(){
             this.getCategorias();
         },
@@ -45,6 +47,7 @@
             setCategoria(e)
             {
                 this.categoriaSelecionada = e.target.value ;
+                console.log("akajehae" + e.target.value.id );
             }
             
         }

@@ -1,6 +1,6 @@
 import Vue from 'vue'
 
-import PostByCategory from './postByCategory.vue'
+import PostbyCategory from './PostbyCategory.vue'
 
 Vue.config.productionTip = false
 
@@ -9,5 +9,5 @@ Vue.prototype.$http = axios
 Vue.prototype.$api_url = process.env.VUE_APP_API_HOST
 
 new Vue({
-  render: h => h(PostByCategory),
+  render: h => h(PostbyCategory),
 }).$mount('#app')
