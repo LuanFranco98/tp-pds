@@ -35,6 +35,18 @@ module.exports = {
         filename: 'postbyUsuario.html',
         title:'Post By Usuario'
       },
+      allPosts:{
+        entry: 'src/views/post/allPosts/allPosts.js',
+        template: 'public/allPosts.html',
+        filename: 'allPosts.html',
+        title:'All Posts'
+      },
+      viewPost:{
+        entry: 'src/views/post/viewPost/viewPost.js',
+        template: 'public/viewPost.html',
+        filename: 'viewPost.html',
+        title:'Selected Post'
+      },
 
     }
   }

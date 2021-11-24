@@ -8,42 +8,26 @@
                 <input  type="text"  placeholder="Título" v-model="post.nome"/>
                 <br/>
                 <br/>
+                <p style="font-weight:bold">Digite aqui as categorias do seu post</p>
+                <select @change="setCategoria($event)" class="form-select form-control" style="width:250px;" multiple>
+                    <option> --- Selecione as categorias do seu post --- </option>
+                    <option v-for="categoria in this.categorias" :key="categoria.id" :value="categoria.id"> {{ categoria.nome }} </option>
+                </select>
+                <br/>
+                <br/>
                 <p style="font-weight:bold">Digite aqui o conteúdo do seu post</p>
                 <textarea  placeholder="Conteúdo" v-model="post.conteudo" style="width:700px; height:400px" />
                 <br/>
                 <br/>
-                <p style="font-weight:bold">Digite aqui a categoria do seu post</p>
-                <input  type="text"  placeholder="Categoria" v-model="post.categoria"/> <!-- mudar pra um selectonemenu -->
-                <br/>
-                <br/>
+                
                 <!-- uploadFile v-model="post.imagem"-->
-                <button class="btn btn-success" style="margin-left:20px" >Cadastrar</button>
+ 
+                <button class="btn btn-success" style="margin-left:5px; width:200px; height:50px" >Criar novo Post</button>
               
             </form>
           <br/>
           <br/>
-          <table class="table">
-          <thead>
-            <th>Titulo</th>
-            <th>Conteudo</th>
-            <th>Imagem</th>
-            <th>Criador</th>
-            <th>Categoria</th>
-            <th>Botão</th>
-          </thead>
-          <tbody>
-            <tr v-for="postagem in posts" :key="postagem.id">
-              <td>{{ postagem.titulo }}</td>
-              <td>{{ postagem.conteudo }}</td>
-              <td>{{ postagem.imagem }}</td>
-              <td>{{ postagem.criador }}</td>
-              <td>{{ postagem.categoria }}</td>
-              <td>
-                <button class="btn btn-success" > Icone! </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>  
+          
       </div>
     </div>
   </div>
@@ -54,18 +38,43 @@
     name: 'CreatePost',
     data(){
     return {
+        mode: 'Cadastrar',
         post:{}, 
-        posts: []
+        posts: [],
+        categorias: {},
         }
     },
     async created(){
-        this.getPosts();
+        this.getCategorias();
     },
     methods:{
-        async getPosts(){
-            var response = await fetch('http://127.0.0.1:8000/api/post/');
-            this.posts = await response.json();
-        }
+        submitForm(){
+            this.createPost();
+        },
+        async createPost(){
+            //adicionar usuario criador no this.post
+            await fetch('http://127.0.0.1:8000/api/post/',
+            {
+              method: 'post',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(this.post)
+            });
+
+            this.usuario = {};
+        },
+        async getCategorias()
+        {
+            var response = await fetch('http://127.0.0.1:8000/api/categoria');
+            this.categorias = await response.json();
+        },
+        setCategoria(e)
+        {
+            this.getPostagens(e.target.value)
+            this.categoriaSelecionada = e.target.value ;
+        },
+
     }
 
 }
