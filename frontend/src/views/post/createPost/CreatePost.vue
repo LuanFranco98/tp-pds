@@ -19,8 +19,8 @@
                 <textarea  placeholder="Conteúdo" v-model="post.conteudo" style="width:700px; height:400px" />
                 <br/>
                 <br/>
-                
-                <!-- uploadFile v-model="post.imagem"-->
+                <p style="font-weight:bold">Digite aqui o link para a sua imagem</p>
+                <input  type="text"  placeholder="Link da imagem" v-model="post.imagem"/>
  
                 <button class="btn btn-success" style="margin-left:5px; width:200px; height:50px" >Criar novo Post</button>
               

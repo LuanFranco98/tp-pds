@@ -6,6 +6,8 @@
                 <small>Categorias: {{ post.categorias }}</small>
                 <small>Autor:{{ post.criador }}</small>
                 <br/>
+                <img v-bind:src="post.imagem" alt="pic" style="width:200px; height:200px; margin-bottom:"/>
+                <br/>
                 <p>{{ post.conteudo }}</p>
             </div>
         </div>
@@ -17,10 +19,11 @@ export default {
     name: 'ViewPost',
     data(){
     return {
+        img :"https://i.kym-cdn.com/entries/icons/original/000/022/713/MonkaSSS.jpg",
         post:{}, 
         posts: [],
         //TODO: pegar esse post de forma dinamica, quando o usario clicar no ir para post em alguma das paginas de todos posts, posts da categoria ou posts da pessoa
-        postId: 2,
+        postId: 8,
         }
     },
     async created(){
@@ -30,7 +33,7 @@ export default {
         async getPost(){
             var response = await fetch(`http://127.0.0.1:8000/api/post/${this.postId}`);
             this.post = await response.json();
-        }
+        },
     }
 }
 </script>
