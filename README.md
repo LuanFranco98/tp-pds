@@ -52,25 +52,33 @@ Os usuários serão capazes de postar artigos, comentários, favoritar posts e f
 
 
 Historia: Inicio do banco de dados <br/>
-- Setup inicial do bd(Álvaro)
-- Criar tabelas(Álvaro)
+- Setup inicial do bd(Álvaro) (DONE)
+- Criar tabelas(Álvaro) (DONE)
 
 Historia: Inicio do frontend <br/>
-- Setup do frontend(Luan)
-- Criar uma homepage basica(Luan)
+- Setup do frontend(Luan) (DONE)
+- Criar uma homepage basica(Luan) (DONE)
 
 Historia: Inicio do backend <br/>
-- Setup do backend(Álvaro)
+- Setup do backend(Álvaro) (DONE)
 	
 Historia: Como usuário eu quero poder ver um post <br/> 
-- Configurar criacao do post no banco de dados(Mateus)
-- Criar pagina para visualizacao do post(Luan)
+- Configurar criacao do post no banco de dados(Mateus) (DONE)
+- Criar pagina para visualizacao do post(Luan) (80/100)
 
 Historia: Como usuário eu quero poder ver uma categoria específica de posts <br/> 
-- Configurar como vincular um post a uma categoria(Mateus)
-- Criar pagina da categoria(Luan)
+- Configurar como vincular um post a uma categoria(Mateus) (DONE)
+- Criar pagina da categoria(Luan)  (80/100)
 	
 
 
-	
+## Sprint 2:
 
+História: Como usuário eu quero poder comentar em algum post <br/>
+- Backend do comentario
+- Criar meio no frontend para o usuario poder comentar
+
+História: Como usuário eu quero poder favoritar um post <br/>
+- Backend do favorito
+- Opção de favortitar um post
+- Página de posts favoritos
