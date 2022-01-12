@@ -27,6 +27,7 @@
 
         data(){
         return {
+            categoriaAnterior:null,
             categoriaSelecionada: null,
             categorias: {},
             post:{}, 
@@ -47,11 +48,11 @@
             },
             setCategoria(e)
             {
-                this.getPostagens(e.target.value)
                 this.categoriaSelecionada = e.target.value ;
+                this.getPostagens(e.target.value)
             },
             async getPostagens(selecionado)
-            {
+            {                    
                 var response = await fetch(`http://127.0.0.1:8000/api/categoria/${selecionado}`);
                 var categoria = await response.json();
                 console.log("posts.size(): "+ categoria.posts.length);
@@ -64,7 +65,7 @@
                     var temp_post = await response2.json();
                     console.log("post: "+ temp_post);
                     console.log("post title: " +temp_post.titulo)
-                    this.posts += temp_post;
+                    this.posts.push(temp_post);
                 }               
                 
             },
