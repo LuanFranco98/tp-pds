@@ -19,8 +19,7 @@ class Categoria(models.Model):
     nome = models.CharField(max_length=140)
     posts = models.ManyToManyField('Post', blank=True)
     def __str__(self):
-        return self.nome
-
+        return self.nome    
 
 class Post(models.Model):
     titulo = models.CharField(max_length=50)
@@ -31,3 +30,8 @@ class Post(models.Model):
 
     def __str__(self):
         return self.titulo
+
+class Comentario(models.Model):
+    criador = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    comentario = models.TextField()
+    post = models.ForeignKey(Post, related_name='comentarios', on_delete=models.CASCADE)

@@ -5,8 +5,8 @@ from rest_framework.serializers import Serializer
 # Create your views here.
 from rest_framework.viewsets import ModelViewSet
 
-from .models import Categoria, Usuario, Post
-from .serializers import CategoriaSerializer, UsuarioSerializer, PostSerializer
+from .models import Categoria, Usuario, Post, Comentario
+from .serializers import CategoriaSerializer, UsuarioSerializer, PostSerializer,  ComentarioSerializer
 
 class UsuarioViewSet(ModelViewSet):
     queryset = Usuario.objects.all()
@@ -19,6 +19,11 @@ class PostViewSet(ModelViewSet):
 class CategoriaViewSet(ModelViewSet):
     queryset = Categoria.objects.all()
     serializer_class = CategoriaSerializer
+
+class ComentarioViewSet(ModelViewSet):
+    queryset = Comentario.objects.all()
+    serializer_class = ComentarioSerializer
+
 
 
 

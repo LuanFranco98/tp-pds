@@ -11,6 +11,7 @@ router = routers.DefaultRouter()
 router.register('usuario', UsuarioViewSet)
 router.register('post', PostViewSet)
 router.register('categoria', CategoriaViewSet)
+router.register('comentario', ComentarioViewSet)
 
 urlpatterns = [
 
