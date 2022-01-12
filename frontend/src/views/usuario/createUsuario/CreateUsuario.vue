@@ -27,7 +27,7 @@
                 <td>{{ usr.email }}</td>
                 <td>{{ usr.senha }}</td>
                 <td>
-                  <button class="btn btn-success" v-on:click="setUsuario(usr)"> Icone! </button>
+                  <button class="btn btn-success" v-on:click="setUsuario(usr)"> <font-awesome-icon icon="pencil-alt"/></button>
                 </td>
               </tr>
             </tbody>
