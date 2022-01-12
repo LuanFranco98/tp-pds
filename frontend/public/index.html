@@ -3,21 +3,22 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
-    <nav class="navbar is-dark" style="background-color: black; color:aliceblue">
+    <nav class="navbar is-dark" 
+          style="color:#FFFFFF; background:linear-gradient(-90deg, #FD8866, #FA543A)">
       <div class="navbar-brand">
-        <router-link><link to="/" class="navbar-item"><strong>Medium Clone</strong></router-link>
+        <a class="navbar-item" style="margin-right:5px ;text-decoration:inherit ;color: inherit;background-color: inherit;" href="/"><strong>Medium Clone</strong></a>
       </div>
       <div class="navbar-menu" id="navbar-menu">
         <div class="navbar-end">
-          <router-link to="/categorias" class="navbar-item" style="margin-right:5px ;">Categorias</router-link>
-          <router-link to="/criar_post" class="navbar-item" style="margin-right:5px ;">Novo post</router-link>
-          <router-link to="/favoritos" class="navbar-item"style="margin-right:5px ;">Favoritos</router-link>
+              <a class="navbar-item" style="margin-right:5px ;text-decoration:inherit ;color: inherit;background-color: inherit;" href="/createPost">Novo post</a>
+              <a class="navbar-item" style="margin-right:5px ;text-decoration:inherit ;color: inherit;background-color: inherit;" href="/favoritos">Favoritos</a>
+              <a class="navbar-item" style="margin-right:5px ;text-decoration:inherit ;color: inherit;background-color: inherit;" href="/categorias">Categorias</a>
         </div>
       </div>
     </nav>
@@ -26,8 +27,9 @@
     </noscript>
     
       
-
-    <div id="app"></div>
+    <div class="content-wrapper" style="position:absolute;width:100%;height:100% ; background-image: url(https://images8.alphacoders.com/679/thumb-1920-679478.jpg)">    
+      <div id="app" ></div>
+    </div>
 
 
     
