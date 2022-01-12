@@ -41,6 +41,12 @@ module.exports = {
         filename: 'allPosts.html',
         title:'All Posts'
       },
+      favoritePosts:{
+        entry: 'src/views/post/favoritePosts/favoritePosts.js',
+        template: 'public/favoritePosts.html',
+        filename: 'favoritePosts.html',
+        title:'Favorite Posts'
+      },
       viewPost:{
         entry: 'src/views/post/viewPost/viewPost.js',
         template: 'public/viewPost.html',

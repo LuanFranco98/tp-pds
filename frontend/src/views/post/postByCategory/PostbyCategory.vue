@@ -13,7 +13,7 @@
                     <!-- <small>Categorias: {{ postagem.categorias }}</small>
                     <small>Autor:{{ postagem.criador }}</small>
                     <br/> -->
-                    <p>{{ postagem.conteudo }}</p>
+                    <p>{{ postagem.conteudo.slice(0, 200) + ' ... '  }}</p>
                     <br/>
                     <button class="btn btn-info" style="margin-left:20px" >Seguir Post</button>
                 </div>
