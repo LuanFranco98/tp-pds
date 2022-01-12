@@ -1,20 +1,22 @@
 <template>
     
-    <div id="PostByCategory" style="background-color:#CCC8B3; margin-left:15%; margin-right:15%">
-        <select @change="setCategoria($event)" class="form-select form-control" style="width:250px;  margin-left:10%;">
+    <div id="PostByCategory" style="background-color:#cf5947; margin-left:15%; margin-right:15%; margin-top:10px; display:grid ; border-radius: 10px ">
+        <select @change="setCategoria($event)" class="form-select form-control" style=" width:250px;  margin-left:5%;margin-top:1%; border-radius: 10px ">
             <option> --- Selecione uma categoria --- </option>
             <option v-for="categoria in this.categorias" :key="categoria.id" :value="categoria.id"> {{ categoria.nome }} </option>
         </select>
         <br/>
         <div v-if="categoriaSelecionada != null">
-            <div v-for="postagem in this.posts" :key="postagem.id"  style="background-color:#CCC8B3; margin-left:15%; margin-right:15%">
-                <h3>Título: {{ postagem.titulo }}</h3>
-                <small>Categorias: {{ postagem.categorias }}</small>
-                <small>Autor:{{ postagem.criador }}</small>
-                <br/>
-                <p>{{ postagem.conteudo }}</p>
-                <br/>
-                <button class="btn btn-info" style="margin-left:20px" >Seguir Post</button>
+            <div v-for="postagem in this.posts" :key="postagem.id"  style="background-color: #D75A3E; margin-left:5%; margin-right:5%; margin-bottom:1% ; border-radius: 10px; display:grid ;border-style: solid;">
+                <div style="margin:2%; background-color: #D75A3E;">
+                    <h3>Título: {{ postagem.titulo }}</h3>
+                    <!-- <small>Categorias: {{ postagem.categorias }}</small>
+                    <small>Autor:{{ postagem.criador }}</small>
+                    <br/> -->
+                    <p>{{ postagem.conteudo }}</p>
+                    <br/>
+                    <button class="btn btn-info" style="margin-left:20px" >Seguir Post</button>
+                </div>
             </div>
         </div>
         

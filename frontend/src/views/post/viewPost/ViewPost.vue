@@ -1,6 +1,6 @@
 <template>
-    <div id="viewPostWrapper">
-        <div style="background-color: #cf5947; margin-left:15%; margin-right:15%; margin-top:10px;height:850px">
+    <div id="viewPostWrapper" style="width:100%;height:100%">
+        <div style="background-color: #cf5947; margin-left:15%; margin-right:15%; margin-top:10px;height:95%">
             <div style=" float:left; margin-top:20px; margin-left:20px; background-color: #A92C11; border-radius: 10px">
                 <div style="width:500px; padding-top:10px; padding-right:20px; padding-left:10px;margin-bottom:10px; display:grid">
                     <h3 style="font-family: Roboto">{{ post.titulo }}</h3>
