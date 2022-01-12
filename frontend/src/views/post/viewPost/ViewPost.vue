@@ -4,8 +4,8 @@
             <div style=" float:left; margin-top:20px; margin-left:20px; background-color: #A92C11; border-radius: 10px">
                 <div style="width:500px; padding-top:10px; padding-right:20px; padding-left:10px;margin-bottom:10px; display:grid">
                     <h3 style="font-family: Roboto">{{ post.titulo }}</h3>
-                    <small>Categorias: {{ post.categorias }}</small>
-                    <small >Autor:{{ post.criador }}</small>
+                    <small>Categorias: {{ categorias }}</small>
+                    <small >Autor:{{ criador.nome }}</small>
                 </div>
             </div>
             <div style="text-align:right; padding-top:20px; padding-right:20px;">
@@ -48,22 +48,54 @@ export default {
     return {
         //img :"https://i.kym-cdn.com/entries/icons/original/000/022/713/MonkaSSS.jpg",
         post:{}, 
-        posts: [],
-        comentarios: [
-            "Comentario 1",
-            "Comentario 2",
-        ],
+        criador:{},
+        categorias:[],
+        comentarios: [],
         //TODO: pegar esse post de forma dinamica, quando o usario clicar no ir para post em alguma das paginas de todos posts, posts da categoria ou posts da pessoa
-        postId: 8,
+        postId: 10,
         }
     },
     async created(){
-        this.getPost();
+        this.getPostAndInfo();
     },
     methods:{
-        async getPost(){
+        async getPostAndInfo(){
             var response = await fetch(`http://127.0.0.1:8000/api/post/${this.postId}`);
             this.post = await response.json();
+
+            let usrs =  await fetch(`http://127.0.0.1:8000/api/usuario`)
+            usrs = await usrs.json()
+
+            var coments = await fetch(`http://127.0.0.1:8000/api/comentario`);
+            coments = await coments.json()
+            
+            coments.forEach(coment => {
+                if (coment.post == this.postId)
+                {
+                    let string = ""
+                    for (let index = 0; index < usrs.length; index++) 
+                    {
+                        const element = usrs[index];
+                        if (element.id == coment.criador)
+                        {
+                            string = coment.comentario + " -- by: " + element.nome
+                        }
+                    }
+                    this.comentarios.push(string)
+                }
+            });
+
+            var usr = await fetch(`http://127.0.0.1:8000/api/usuario/${this.post.criador}`)
+            this.criador = await usr.json()
+
+            var catIds = this.post.categorias
+            for (let index = 0; index < catIds.length; index++) {
+                const id = catIds[index];
+                let cat_temp = await fetch(`http://127.0.0.1:8000/api/categoria/${id}`)
+                cat_temp = await cat_temp.json()
+                this.categorias.push(cat_temp.nome)                
+            }
+    
         },
     }
 }
